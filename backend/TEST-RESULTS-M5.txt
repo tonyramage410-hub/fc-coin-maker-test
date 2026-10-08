@@ -1,0 +1,26 @@
+✔ status hard-disables providers, credits, EA, automation and writes even with hostile env (4.546422ms)
+✔ demo listing is visibly synthetic and keeps exact card versions/platforms separate (1.345238ms)
+✔ synthetic fixture contract stays compatible with M4 but cannot qualify for real opportunity (2.018553ms)
+✔ search matches ID/name and exact platform/version/finish filters (2.390223ms)
+✔ quote requires full identity and rejects cross-platform missing identities (1.019687ms)
+✔ fixture timestamp is fixed across requests; null price remains unavailable (1.20094ms)
+✔ history stays bound to exact identity and separately labelled as synthetic averages (0.521246ms)
+✔ real routes always return provider_disabled, never a synthetic fallback (0.997704ms)
+✔ owner operations are locked even with forged JWT, reviewer, cookie or approval (1.41999ms)
+✔ writes and trade/proxy/provider paths are unavailable (1.745131ms)
+✔ origin checks are exact and credentialed CORS is absent (1.182893ms)
+✔ preflights allow only known public read-only paths with no extra auth headers (1.318888ms)
+✔ strict query validation blocks ambiguity, unexpected fields, controls and URL injection (1.788906ms)
+✔ path and protocol validation block encoded slashes, upgrades and oversized URLs (0.849431ms)
+✔ all responses have anti-sniff, no-store, restrictive CSP and no cookies (1.113589ms)
+✔ HEAD responses are bodyless and preserve status and content type (0.898935ms)
+✔ global outbound request trap remains untouched across all supported routes and hostile flags (1.123093ms)
+✔ deployment configuration has no resources, jobs, credentials or paid dependencies (0.445302ms)
+ℹ tests 18
+ℹ suites 0
+ℹ pass 18
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 111.9958

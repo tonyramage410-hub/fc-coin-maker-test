@@ -1,0 +1,18 @@
+{
+  "milestone": 5,
+  "release": "m5-synthetic-only",
+  "deploymentStatus": "blocked-awaiting-cloudflare-authentication-permission",
+  "deployedBackendURL": null,
+  "liveHTTPSVerified": false,
+  "backendNodeTestsPassed": 18,
+  "cloudflareWorkerdTestsPassed": 8,
+  "existingRegressionTestsPassed": 50,
+  "dependencyAuditReportedVulnerabilities": 0,
+  "providerRequestsEnabled": false,
+  "providerCreditBudget": 0,
+  "ownerAuthenticationConfigured": false,
+  "approvalWritesEnabled": false,
+  "billingEnabledByThisWork": false,
+  "eaConnected": false,
+  "tradingAutomationEnabled": false
+}

@@ -1,0 +1,21 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> fc-coin-maker-backend@0.5.0 test:runtime
+> workerd test tests/runtime-tests.capnp
+
+workerd/server/server.c++:8201: debug: [ TEST ] tests:corsAndPreflight
+workerd/server/server.c++:8215: debug: [ PASS ] tests:corsAndPreflight (664.902μs)
+workerd/server/server.c++:8201: debug: [ TEST ] tests:exactIdentities
+workerd/server/server.c++:8215: debug: [ PASS ] tests:exactIdentities (594.847μs)
+workerd/server/server.c++:8201: debug: [ TEST ] tests:headersAndHead
+workerd/server/server.c++:8215: debug: [ PASS ] tests:headersAndHead (260.432μs)
+workerd/server/server.c++:8201: debug: [ TEST ] tests:lockedOwner
+workerd/server/server.c++:8215: debug: [ PASS ] tests:lockedOwner (258.049μs)
+workerd/server/server.c++:8201: debug: [ TEST ] tests:missingAndHistory
+workerd/server/server.c++:8215: debug: [ PASS ] tests:missingAndHistory (394.564μs)
+workerd/server/server.c++:8201: debug: [ TEST ] tests:noRealFallback
+workerd/server/server.c++:8215: debug: [ PASS ] tests:noRealFallback (106.35μs)
+workerd/server/server.c++:8201: debug: [ TEST ] tests:status
+workerd/server/server.c++:8215: debug: [ PASS ] tests:status (151.728μs)
+workerd/server/server.c++:8201: debug: [ TEST ] tests:strictInputs
+workerd/server/server.c++:8215: debug: [ PASS ] tests:strictInputs (251.609μs)
