@@ -18,4 +18,4 @@ No production owner authentication or secure backend is deployed. Approval publi
 
 Milestone 4 physical iPhone Safari check remains pending: file picker, paste, numeric keyboard, scrolling, safe areas, source links, owner review copying, refresh clearing, portrait/landscape. M3's physical acceptance does not establish M4 acceptance.
 
-Browser record to be completed after deployment; see BROWSER-VERIFICATION-M4.md when supplied.
+Live GitHub Pages deployment succeeded. Cloud Chrome interaction and five responsive frame sizes passed the checks recorded in BROWSER-VERIFICATION-M4.md. This is not physical Safari acceptance or a live-market integration test.
