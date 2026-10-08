@@ -1,0 +1,155 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src 'none'; connect-src 'none'; base-uri 'none'; form-action 'none'"><style>:root{color-scheme:dark;font:14px system-ui,-apple-system,sans-serif;background:#0b1120;color:#f4f6fb}*{box-sizing:border-box}body{margin:0}main{padding:17px;max-width:480px;margin:auto}header{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}h1{font-size:19px;margin:4px 0}h2{font-size:15px;margin:16px 0 7px}.eyebrow{font-size:10px;letter-spacing:.1em;color:#dfbe70;font-weight:700}.close{background:none;color:#c9d3e4;border:0;font-size:26px;cursor:pointer}.pulse,.rules{background:#182237;padding:15px;border-radius:14px}.pulse strong{display:block;margin-top:7px}.pulse p,.hint,.rules p,footer{color:#afbdd1;font-size:12px;line-height:1.6}.pulse p{margin-bottom:0}nav{display:flex;gap:7px;margin:14px 0;position:sticky;top:0;z-index:3;background:#0b1120;padding:8px 0}.tab{flex:1;background:#182237;border:1px solid #354158;color:#cbd6e8;padding:11px 4px;border-radius:10px;font-weight:700}.tab.selected{background:#dec27d;color:#231c0b;border-color:#dec27d}.fields{display:grid;grid-template-columns:1fr 1fr;gap:10px}.fields label{display:block;font-size:11px;color:#aebcd0}.fields input,.fields select{width:100%;margin-top:5px;padding:10px 7px;background:#101a2c;color:#fff;border:1px solid #3d4a60;border-radius:8px;font-size:16px}.result{margin:15px 0;background:#141f33;padding:12px;border-radius:13px}.result div{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #27354b;padding:8px 0;gap:8px}.result div:last-child{border:0}.result span{font-size:12px;color:#b9c6da}.result b{font-size:15px;font-variant-numeric:tabular-nums}.status{font-size:12px;color:#dfbe70;margin-bottom:12px}.primary,.secondary{display:block;width:100%;padding:12px;border-radius:9px;font-weight:750;cursor:pointer}.primary{border:0;background:#dfbe70;color:#221b0b}.secondary{margin-top:8px;border:1px solid #4d5c73;background:transparent;color:#f4f6fb}.locked{padding:12px;background:#1b3934;border:1px solid #326e5c;border-radius:10px;margin-top:10px;font-size:12px}.rules{margin-top:18px}.rules p{margin-bottom:0}.rules .disclaimer{font-size:11px;margin-top:12px;color:#d4ae87}footer{padding:18px 0;text-align:center;font-size:10px}
+
+.mode-message{background:#26324b;border:1px solid #52607b;border-radius:10px;padding:11px;font-size:12px;line-height:1.5;margin:10px 0}.mode-message strong{display:block;color:#f1d58d;font-size:14px;margin-bottom:3px}.mini-summary{display:flex;gap:9px;margin:11px 0}.mini-summary div{flex:1;background:#182237;border-radius:10px;padding:10px;font-size:11px;color:#b9c6da}.mini-summary strong{display:block;color:#fff;font-size:15px;margin-top:5px}[hidden]{display:none!important}button:disabled{opacity:.5;cursor:default}button:focus-visible{outline:3px solid #fff;outline-offset:2px}main{padding-bottom:calc(17px + env(safe-area-inset-bottom))}
+</style><title>FC Coin Maker — Safari Web Test</title></head><body>
+<main>
+<header><div><div class="eyebrow">MILESTONE 2 · SAFARI WEB TEST</div><h1>🪙 FC Coin Maker</h1></div><button class="close" id="close" title="Close panel" aria-label="Close panel">×</button></header>
+<section class="pulse"><div class="eyebrow">Market Pulse</div><strong>Not connected to live prices</strong><p>This prototype performs calculations only. It never searches, bids or buys on EA.</p></section>
+<nav aria-label="Trading modes"><button class="tab selected" id="bidTab">Mass Bidding</button><button class="tab" id="snipeTab">Sniping</button></nav>
+<section><div class="mode-message" aria-live="polite" id="modeMessage"><strong>Mass Bidding mode</strong>Check the maximum bid for auctions ending within 15 minutes, along with your remaining target slots.</div><div class="mini-summary"><div>Current mode<strong id="modeLabel">Mass Bidding</strong></div><div>Remaining target slots<strong id="slotHighlight">50</strong></div></div><h2 id="modeHeading">Pre-Bid Price Check</h2><p class="hint">Enter a manually checked reference price for your platform. Card identity and sales must be verified separately.</p>
+<div class="fields">
+<label>Reference Buy Now price<input id="market" type="number" min="150" step="1" value="1200" inputmode="numeric"></label>
+<label>Conservative undercut<select id="undercut"><option value="100">100 coins</option><option value="200">200 coins</option></select></label>
+<label>Target minimum net profit<input id="profit" type="number" min="0" step="1" value="75" inputmode="numeric"></label>
+<label>Your coin balance<input id="balance" type="number" min="0" step="1" value="30000" inputmode="numeric"></label>
+<label>Budget allocation (%)<input id="allocation" type="number" min="0" max="100" step="1" value="30" inputmode="numeric"></label>
+<label>Already occupied targets<input id="occupied" type="number" min="0" max="50" value="0" inputmode="numeric"></label>
+<label>Card minimum price<input id="cardMin" type="number" min="150" step="1" value="150" inputmode="numeric"></label>
+<label>Card maximum price<input id="cardMax" type="number" min="150" step="1" value="15000000" inputmode="numeric"></label>
+<label>Coins already committed<input id="committed" type="number" min="0" step="1" value="0" inputmode="numeric"></label>
+<label id="auctionField">Minutes remaining<input id="minutes" type="number" min="0" max="15" step="any" value="15" inputmode="decimal"></label>
+</div>
+<p class="hint" id="modeHint">Enter this card’s actual price range. Defaults are demo bounds. Balance is the total bankroll before existing commitments; deduct commitments here once. Target count includes existing bids. Both modes are calculators only.</p>
+<div class="result" id="results" aria-live="polite"><div><span>Suggested sale</span><b id="sell">—</b></div><div><span>Conservative tax estimate</span><b id="tax">—</b></div><div><span>Calculated purchase ceiling</span><b id="max">—</b></div><div><span>Net profit at max price</span><b id="net">—</b></div><div><span>Allocated coins</span><b id="budget">—</b></div><div><span>Possible purchases</span><b id="slots">—</b></div></div>
+<div class="status" id="status" role="status">Loading calculator…</div><noscript><p style="color:#ffcf86">JavaScript is disabled in this viewer. Open the hosted page directly in Safari.</p></noscript>
+<button id="lock" class="primary">Lock demonstration bid ceiling</button><button id="reset" class="secondary">Reset demo</button>
+<div class="locked" id="locked" hidden></div>
+</section>
+<section class="rules"><h2>Demo planning policies</h2><p>✓ Never exceed the locked bid ceiling<br>✓ Mass bidding: auctions above 0 and ≤15 minutes remaining<br>✓ Demo capacity: 50 Transfer Targets (verify in your app)<br>✓ Session review after 10 completed sales<br>✓ No trade without sufficient budget</p><p class="disclaimer">Tick sizes are provisional for demonstration. Verify against EA FC 27 before issuing customer prices. Tax is rounded up conservatively; exact fractional tax rounding is unverified. The 15-minute and 10-sale rules are project policies, not EA safeguards. Neither a listing nor a projected margin guarantees a sale.</p></section>
+<footer>No EA credentials, cookies, account details or trades are collected. No live-data or transaction requests. This static page sends no application data or EA requests. Hosting will necessarily involve ordinary requests to the host for the page itself; it does not install a Safari extension.</footer>
+</main><script>// Offline planning only. Tick schedule and card limits require FC 27 verification.
+const TAX_RATE = 0.05;
+const TARGET_LIMIT = 50; // Demo policy, not a live capacity measurement.
+const AUCTION_MINUTES = 15;
+const REVIEW_AFTER_SALES = 10;
+const MIN_PRICE = 150;
+const MAX_PRICE = 15000000; // Demo model cap; per-card ranges take precedence.
+function number(value) {
+  if (typeof value !== 'number' && typeof value !== 'string') return NaN;
+  if (typeof value === 'string' && !value.trim()) return NaN;
+  const n = Number(value);
+  return Number.isFinite(n) ? n : NaN;
+}
+function whole(value, min = 0, max = Number.MAX_SAFE_INTEGER) {
+  const n = number(value);
+  return Number.isSafeInteger(n) && n >= min && n <= max;
+}
+function priceStep(price) {
+  if (price < 1000) return 50;
+  if (price < 10000) return 100;
+  if (price < 50000) return 250;
+  if (price < 100000) return 500;
+  return 1000;
+}
+function isValidPrice(value) {
+  const n = number(value);
+  return whole(n, MIN_PRICE, MAX_PRICE) && n % priceStep(n) === 0;
+}
+function floorTick(value) {
+  const n = number(value);
+  if (!Number.isFinite(n) || n < MIN_PRICE || n > MAX_PRICE) return 0;
+  return Math.floor(n / priceStep(n)) * priceStep(n);
+}
+function planTrade({marketPrice, undercut = 100, minProfit = 75,
+  balance = 30000, allocationPct = 30, occupiedTargets = 0,
+  auctionMinutes = 15, mode = 'bid', cardMin = MIN_PRICE,
+  cardMax = MAX_PRICE, committedCoins = 0} = {}) {
+  const errors = [];
+  if (!isValidPrice(marketPrice)) errors.push('Reference price must use a valid demo tick (150–15,000,000).');
+  for (const [name, value] of [['Undercut', undercut], ['Profit target', minProfit], ['Balance', balance], ['Committed coins', committedCoins]]) {
+    if (!whole(value)) errors.push(`${name} must be a non-negative whole number.`);
+  }
+  if (!whole(allocationPct, 0, 100)) errors.push('Allocation must be a whole percentage from 0 to 100.');
+  if (!whole(occupiedTargets, 0, TARGET_LIMIT)) errors.push('Occupied targets must be a whole number from 0 to 50.');
+  if (!['bid', 'snipe'].includes(mode)) errors.push('Unknown mode.');
+  if (mode === 'bid' && !(number(auctionMinutes) > 0 && number(auctionMinutes) <= AUCTION_MINUTES)) errors.push('Auction time must be above 0 and at most 15 minutes.');
+  if (!isValidPrice(cardMin) || !isValidPrice(cardMax) || number(cardMin) > number(cardMax)) errors.push('Card price bounds must be valid ticks in ascending order.');
+  if (number(committedCoins) > number(balance)) errors.push('Committed coins exceed balance.');
+  const empty = {market:0,sell:0,tax:0,netSale:0,maxBid:0,theoreticalProfit:0,tradingBudget:0,reserve:0,remainingTargets:0,possibleBids:0,targetProfit:0,eligible:false,errors};
+  if (errors.length) return empty;
+  const market = number(marketPrice), targetProfit = number(minProfit);
+  const low = number(cardMin), high = number(cardMax);
+  if (market < low || market > high) errors.push('Reference price falls outside the entered card range.');
+  const sell = floorTick(market - number(undercut));
+  if (sell < low || sell > high) errors.push('Suggested sale falls outside the entered card range.');
+  // Round tax UP to avoid overestimating net proceeds when 5% is fractional.
+  // Exact FC 27 fractional-tax rounding is unverified; this is a conservative estimate.
+  const tax = Math.ceil(sell / 20), netSale = sell - tax;
+  const rawCeiling = Math.min(high, netSale - targetProfit);
+  const maxBid = floorTick(rawCeiling);
+  if (maxBid < low) errors.push('No purchase in this card range meets the profit target.');
+  const allocated = Number(BigInt(number(balance)) * BigInt(number(allocationPct)) / 100n);
+  const tradingBudget = Math.max(0, allocated - number(committedCoins));
+  const remainingTargets = TARGET_LIMIT - number(occupiedTargets);
+  const possibleBids = maxBid >= low ? Math.min(remainingTargets, Math.floor(tradingBudget / maxBid)) : 0;
+  if (!possibleBids) errors.push('No available budget or target capacity.');
+  return {market,sell,tax,netSale,maxBid,theoreticalProfit:maxBid >= low ? netSale-maxBid : 0,tradingBudget,
+    reserve:number(balance)-number(committedCoins)-tradingBudget,remainingTargets,possibleBids,targetProfit,eligible:errors.length===0,errors};
+}
+function permittedNextBid(nextBid, lockedMaximum, tradingBudgetAvailable, freeSlots, minutesRemaining, cardMin = MIN_PRICE, cardMax = MAX_PRICE) {
+  return isValidPrice(nextBid) && isValidPrice(lockedMaximum) && isValidPrice(cardMin) && isValidPrice(cardMax)
+    && number(cardMin) <= number(cardMax) && number(nextBid) >= number(cardMin) && number(nextBid) <= number(cardMax)
+    && number(nextBid) <= number(lockedMaximum) && whole(tradingBudgetAvailable) && number(nextBid) <= number(tradingBudgetAvailable)
+    && whole(freeSlots, 1, TARGET_LIMIT) && number(minutesRemaining) > 0 && number(minutesRemaining) <= AUCTION_MINUTES;
+}
+
+
+const $ = selector => document.querySelector(selector);
+const inputs = ['market','undercut','profit','balance','allocation','occupied','cardMin','cardMax','committed','minutes'];
+let activeMode = 'bid';
+let locked = null;
+const format = n => n.toLocaleString('en-GB') + ' coins';
+function parameters() {
+  return {marketPrice:$('#market').value,undercut:$('#undercut').value,minProfit:$('#profit').value,
+    balance:$('#balance').value,allocationPct:$('#allocation').value,occupiedTargets:$('#occupied').value,
+    cardMin:$('#cardMin').value,cardMax:$('#cardMax').value,committedCoins:$('#committed').value,
+    auctionMinutes:$('#minutes').value,mode:activeMode};
+}
+function render() {
+  const p = planTrade(parameters());
+  for (const [id,key] of [['sell','sell'],['tax','tax'],['max','maxBid'],['net','theoreticalProfit'],['budget','tradingBudget']]) {
+    $('#'+id).textContent = p.eligible ? format(p[key]) : '—';
+  }
+  $('#slots').textContent = p.eligible ? `${p.possibleBids} / ${TARGET_LIMIT}` : '0';
+  $('#slotHighlight').textContent=String(TARGET_LIMIT-(Number($('#occupied').value)||0));
+  $('#status').textContent = p.eligible ? 'Offline estimate • verify card, platform, range and sale demand manually.' : p.errors.join(' ');
+  $('#lock').disabled = !p.eligible;
+  $('#locked').hidden = !locked;
+  if (locked) $('#locked').textContent = `Demo ceiling saved at ${format(locked.maxBid)} for ${activeMode==='bid'?'mass bidding':'sniping'}. Any field or mode change clears this snapshot. No purchases can occur.`;
+  return p;
+}
+inputs.forEach(id => $('#'+id).addEventListener('input', () => {locked=null;render();}));
+$('#lock').addEventListener('click', () => {const p=render();if(p.eligible){locked={maxBid:p.maxBid};render();}});
+$('#reset').addEventListener('click', () => {locked=null;render();});
+for (const name of ['bid','snipe']) {
+  $('#'+name+'Tab').addEventListener('click', () => {
+    activeMode=name;locked=null;
+    for (const tab of ['bid','snipe']) {
+      $('#'+tab+'Tab').classList.toggle('selected',name===tab);
+      $('#'+tab+'Tab').setAttribute('aria-pressed',String(name===tab));
+    }
+    $('#auctionField').hidden = name==='snipe';
+    $('#modeLabel').textContent=name==='bid'?'Mass Bidding':'Sniping';
+    $('#modeMessage').innerHTML = name==='bid' ? '<strong>Mass Bidding mode</strong>Check the maximum bid for auctions ending within 15 minutes, along with your remaining target slots.' : '<strong>Sniping mode</strong>Plan a maximum Buy Now purchase price for a freshly listed card. No auction countdown is needed in this mode. This is only a calculator—not a live sniping tool.';
+    $('#modeHint').textContent = name==='bid' ? 'Use the card’s actual price range and your existing commitments. Only auctions with 15 minutes or less remaining qualify.' : 'Use the card’s actual price range. The purchase ceiling is your theoretical maximum Buy Now target, not a guarantee of finding a listing.';
+    $('#modeHeading').textContent=name==='bid'?'Pre-Bid Price Check':'Sniping Target Calculator';render();
+  });
+}
+$('#close').addEventListener('click', () => {
+  if (window.parent!==window) window.parent.postMessage({type:'FCM_CLOSE_PANEL'},'https://www.ea.com');
+  else $('#status').textContent='Standalone preview: close this browser tab to exit.';
+});
+$('#bidTab').setAttribute('aria-pressed','true');
+$('#snipeTab').setAttribute('aria-pressed','false');
+render();
+</script></body></html>
