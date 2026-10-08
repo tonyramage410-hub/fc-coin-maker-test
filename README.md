@@ -59,3 +59,11 @@ The GitHub App installation is restricted to this test repository. Successful co
 Current-session verification: original simulator assertions and all 31 expanded Node tests passed. Live browser checks passed for dashboard, module initialization (audited M3.1), Sniping Lab navigation and editable inputs, ten-sale stop (950 simulated profit; cash 30,950), decline/loss scenario (-4,280), mass-bid ceiling (950), expired auction rejection and blank profit validation. All five hosted runtime assets returned HTTP 200 with suitable MIME types.
 
 The optional local Chromium test could not be rerun in this session because the browser executable is absent; prior viewport evidence remains historical. Live checks used the cloud Chrome browser, not physical iPhone Safari. Physical-iPhone acceptance remains outstanding. Market tools, approved cards and history remain placeholders. No money, API credits, EA connections, real transactions or automation were used.
+
+## Milestone 4: market workspace
+
+Safe static import-based market tools extend the preserved M3 simulator and planner. **No live provider connected.** No default catalogue, prices, approval or recommendation is shipped. Search exact FC27 card IDs, versions, finishes and platforms from permitted imports, inspect source/update freshness and supplied histories, calculate conservative tax/profit/exposure, and prepare private owner review requests. Data clears on reload and never uploads.
+
+Run `node tests.mjs` and `node --test tests/*.test.mjs`; 50 checks pass. Read docs/MARKET-DATA-CONTRACT.md, docs/SECURE-BACKEND-DESIGN.md, docs/APPROVED-CARDS-WORKFLOW.md, docs/TESTING-REPORT.md and docs/DEPLOYMENT.md. The offline Parse export converter makes no requests and accepts no key. FC27 increment validity and permitted data use need evidence. Live integration is blocked pending secure backend authorisation, permitted access and explicit credit-use approval.
+
+Rollback M3: branch `rollback/milestone-3-verified`, commit `4fa9e95621887c6f3c6b5422c0b9e7fa5d2161ee`. M4 requires fresh physical Safari acceptance; do not infer it from M3.

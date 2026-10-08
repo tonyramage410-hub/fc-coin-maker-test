@@ -65,7 +65,7 @@ function run() {
   $('events').hidden=false;calc();
 }
 document.querySelectorAll('[data-go]').forEach(button=>button.addEventListener('click',()=>go(button.dataset.go)));
-document.querySelectorAll('input,select').forEach(input=>input.addEventListener('input',()=>{calc();clearSimulation();}));
+document.querySelectorAll('#sharedFields input,#sharedFields select,#sim input').forEach(input=>input.addEventListener('input',()=>{calc();clearSimulation();}));
 $('calculate').addEventListener('click',calc);$('run').addEventListener('click',run);
 calc();document.querySelector('.nav [data-go="home"]').setAttribute('aria-current','page');
 $('loadStatus').textContent='Offline scenario tools ready · audited M3.1';
