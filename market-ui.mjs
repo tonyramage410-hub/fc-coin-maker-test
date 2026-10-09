@@ -61,7 +61,7 @@ async function loadDemo(reset){
  $('marketPulse').textContent='Connecting demo…';$('demoStatus').textContent='Checking safety status and loading fictional cards…';
  $('importStatus').textContent='Demo mode. Local imported observations are not mixed with demonstrations.';
  try{
-  await demo.status();const found=await demo.search(filters());if(generation!==importGeneration)return;cards=found;if(reset)versions();
+  const requestedFilters=filters();await demo.status();if(generation!==importGeneration)return;const found=await demo.search(requestedFilters);if(generation!==importGeneration)return;cards=found;if(reset)versions();
   $('demoStatus').textContent=`Connected · ${cards.length} fictional cards received. Provider requests disabled; credit budget 0; owner writes locked.`;
   $('marketPulse').textContent=`Demo · ${cards.length} fictional cards`;renderSearch();
  }catch(e){if(generation!==importGeneration)return;cards=[];$('demoStatus').textContent=e.message;$('marketPulse').textContent='Demo unavailable';renderSearch();}
