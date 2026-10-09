@@ -8,8 +8,8 @@ test('web page loads the same calculation modules as the tests',()=>{
  assert.match(read('app.mjs'),/import \{planTrade\} from '\.\/calculations.mjs'/);
  assert.match(read('app.mjs'),/import \{runSimulation\} from '\.\/simulator.mjs'/);
 });
-test('strict CSP and local-only asset paths; no credential/network APIs',()=>{
- const html=read('index.html');assert.match(html,/script-src 'self'/);assert.match(html,/style-src 'self'/);assert.match(html,/connect-src 'none'/);
+test('strict CSP permits only pinned demo backend; scenario assets remain local',()=>{
+ const html=read('index.html');assert.match(html,/script-src 'self'/);assert.match(html,/style-src 'self'/);assert.match(html,/connect-src https:\/\/fc-coin-maker-m5-test\.tonyramage410\.workers\.dev;/);
  assert.doesNotMatch(html,/unsafe-inline|\son\w+=|\sstyle=/);
  for(const match of html.matchAll(/(?:src|href)="([^"]+)"/g)) {
   assert.ok(match[1].startsWith('./'));assert.ok(existsSync(new URL('../'+match[1],import.meta.url)));

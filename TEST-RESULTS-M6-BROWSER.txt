@@ -1,0 +1,6 @@
+Chromium 153.0.8010.0; viewport emulation, NOT physical iPhone Safari.
+PASS 320×568: contract responses, failures, imports and stale-request races; exact platform/version/finish, quotes, history, null price, no matches, invalid query, approval lock, opportunity block, no overflow, no credential/write requests, no page errors.
+PASS 375×667: contract responses, failures, imports and stale-request races; exact platform/version/finish, quotes, history, null price, no matches, invalid query, approval lock, opportunity block, no overflow, no credential/write requests, no page errors.
+PASS 390×844: contract responses, failures, imports and stale-request races; exact platform/version/finish, quotes, history, null price, no matches, invalid query, approval lock, opportunity block, no overflow, no credential/write requests, no page errors.
+PASS 844×390: contract responses, failures, imports and stale-request races; exact platform/version/finish, quotes, history, null price, no matches, invalid query, approval lock, opportunity block, no overflow, no credential/write requests, no page errors.
+PASS 1280×900: contract responses, failures, imports and stale-request races; exact platform/version/finish, quotes, history, null price, no matches, invalid query, approval lock, opportunity block, no overflow, no credential/write requests, no page errors.

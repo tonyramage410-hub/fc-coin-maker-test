@@ -1,0 +1,6 @@
+Chromium 153.0.8010.0; viewport emulation, NOT actual iPhone Safari.
+PASS Chromium 320×568: modules/CSP, navigation, editable inputs, calculator, expiry, ten-sale P/L, loss, blank input, stale clearing, tier resale, reload, no overflow, no external requests/errors.
+PASS Chromium 375×667: modules/CSP, navigation, editable inputs, calculator, expiry, ten-sale P/L, loss, blank input, stale clearing, tier resale, reload, no overflow, no external requests/errors.
+PASS Chromium 390×844: modules/CSP, navigation, editable inputs, calculator, expiry, ten-sale P/L, loss, blank input, stale clearing, tier resale, reload, no overflow, no external requests/errors.
+PASS Chromium 844×390: modules/CSP, navigation, editable inputs, calculator, expiry, ten-sale P/L, loss, blank input, stale clearing, tier resale, reload, no overflow, no external requests/errors.
+PASS Chromium 1280×900: modules/CSP, navigation, editable inputs, calculator, expiry, ten-sale P/L, loss, blank input, stale clearing, tier resale, reload, no overflow, no external requests/errors.

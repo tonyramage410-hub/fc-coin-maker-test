@@ -1,0 +1,3 @@
+Chromium 153.0.8010.0; viewport emulation, NOT physical iPhone Safari.
+PASS 390×844: real HTTPS backend and browser CORS; exact platform/version/finish, quotes, history, null price, no matches, invalid query, approval lock, opportunity block, no overflow, no credential/write requests, no page errors.
+PASS 1280×900: real HTTPS backend and browser CORS; exact platform/version/finish, quotes, history, null price, no matches, invalid query, approval lock, opportunity block, no overflow, no credential/write requests, no page errors.
