@@ -29,7 +29,15 @@ Browser engine: Chromium 153.0.8010.0. Mobile viewport/touch emulation is **not 
 
 The existing GitHub Pages main-branch deployment is used, without a new workflow, account, Worker or credential. Rollback branch `rollback/milestone-4-before-m6` preserves main commit `565b829ff557a8d4dfa87113269a53c86f40c7dd`. The existing M3 rollback and M5 backend branch are preserved. Reverting the M6 frontend commit restores M4; the Worker need not change.
 
-The hosted website must be checked after publication. Pre-publication results alone do not establish that Pages has updated. Live verification results will be recorded separately after the actual hosted frontend passes its checks.
+## Verified hosted deployment
+
+The actual hosted Pages application passed its post-deployment checks on 9 October 2026. Runtime source commit: `544bf94ebab131ba76ddbb176c4a69c89f53f33a` (initial M6 commit `8ba4d3ef9660c4edf94d8f3b8203a169dbcc6ff8`). GitHub's existing Pages deployment run `37870007389` completed successfully for the corrected runtime commit.
+
+- **Two live browser runs passed**, at 390×844 and 1280×900, loading the real GitHub Pages frontend and real HTTPS Worker with no frontend replacement or mocked backend. Exact searches, PS/PC/Xbox/holographic quotes, three history points, unavailable price, zero-match search, invalid input, fictional warnings, blocked owner review and opportunity checks passed. No unexpected requests, credentials, writes, page errors or horizontal page overflow. Live Dashboard and History navigation, editable Mass Bidding inputs and zero-minute expiry, ten-sale Sniping results, 950-coin model profit and blank-input rejection also passed. See `TEST-RESULTS-M6-LIVE.txt` and `tests/backend-browser-check.mjs --live`.
+- **Ten strict HTTPS integrity checks passed**: deployed HTML, demo client, renderer and all preserved scenario/data/approval/style files returned 200 and matched the tested local files byte for byte, using normal Node TLS certificate validation. See `TEST-RESULTS-M6-INTEGRITY.txt` and `tests/pages-integrity-check.mjs`.
+- Live 390-pixel demo screenshot was visually inspected: cards, source times, stale status, history table, risk warning, analytical fields and disabled owner-review button rendered without page overflow.
+
+This establishes deployment of the synthetic connection. It does not establish real-market data integration or physical iPhone Safari compatibility.
 
 ## Limits and remaining work
 

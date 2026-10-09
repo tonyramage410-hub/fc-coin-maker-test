@@ -1,0 +1,10 @@
+PASS strict HTTPS 200 and byte-for-byte tested source: index.html
+PASS strict HTTPS 200 and byte-for-byte tested source: backend-client.mjs
+PASS strict HTTPS 200 and byte-for-byte tested source: market-ui.mjs
+PASS strict HTTPS 200 and byte-for-byte tested source: app.mjs
+PASS strict HTTPS 200 and byte-for-byte tested source: calculations.mjs
+PASS strict HTTPS 200 and byte-for-byte tested source: simulator.mjs
+PASS strict HTTPS 200 and byte-for-byte tested source: market-data.mjs
+PASS strict HTTPS 200 and byte-for-byte tested source: approved-cards.mjs
+PASS strict HTTPS 200 and byte-for-byte tested source: parse-export.mjs
+PASS strict HTTPS 200 and byte-for-byte tested source: styles.css
